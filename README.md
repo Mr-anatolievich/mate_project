@@ -27,7 +27,7 @@ npm install cypress --save-dev
 npx cypress open
 
 ```
-
+<img width="371" alt="Screenshot 2023-05-18 at 20 36 01" src="https://github.com/Mr-anatolievich/mate_project/assets/75860472/8d3ab874-44d8-481e-9449-a3eef4cb953e">
     
 # Test Scenarios
 
