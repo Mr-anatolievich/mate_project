@@ -213,6 +213,20 @@ Following are some best practices to keep in mind when implementing page objects
 5. **Encapsulate Page Details**: The page object should fully encapsulate the UI details of the page it represents. Test scripts should interact with the page object's API and know nothing about the underlying page.
 
 
+# Test Fixture Example
+
+This example demonstrates a fixture file containing login credentials for a Cypress test.
+
+**Fixture File: `data.json`**
+
+```json
+{
+  "email": "tomsmith",
+  "password": "SuperSecretPassword!"
+}
+```
+In the above example, the **data.json** fixture file includes an email and password field with corresponding values. This fixture used within Cypress tests to populate login form.
+
 ## 🚀 Yaroslav Saienko
 Your future QA Automation Engineer (JS)
 
