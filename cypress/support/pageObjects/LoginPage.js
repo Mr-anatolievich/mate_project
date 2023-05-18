@@ -3,13 +3,13 @@ class LoginPage {
     fillUsername(value) {
         cy.get('input[name=username]')
             .clear()
-            .type(value)
+            .type(value, { delay: 33 })
     }
 
     fillPassword(value) {
         cy.get('input[name=password]')
             .clear()
-            .type(value)
+            .type(value, { delay: 33 })
     }
 
     submit() {
