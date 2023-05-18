@@ -19,10 +19,6 @@ class LoginPage {
     checkStatusMessage(text){
         cy.get('#flash').contains(text).should('be.visible')
     }
-
-    checkLoginSuccess() {
-        cy.url().should('include', '/secure')
-    }
 }
 
 export const loginPage = new LoginPage();

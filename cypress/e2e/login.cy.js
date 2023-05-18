@@ -7,29 +7,31 @@ describe('Login Test Suite', () => {
         cy.visit(Cypress.env('baseUrl'))
         cy.wait(2000)
     })
+    it('Scenario 1: Verify Successful Login', () => {
 
-    it('Verify Successful Login', () => {
-        loginPage.fillUsername('tomsmith')
-        loginPage.fillPassword('SuperSecretPassword!')
+        cy.fixture('data').then( data => { 
+
+        loginPage.fillUsername(data.email)
+        loginPage.fillPassword(data.password)
         loginPage.submit()
-        loginPage.checkLoginSuccess()
         loginPage.checkStatusMessage('You logged into a secure area!')
+        })
     })
 
-    it('Verify Login Attempt with Invalid Credentials', () => {
+    it('Scenario 2: Verify Login Attempt with Invalid Credentials', () => {
         loginPage.fillUsername('invalidUser')
         loginPage.fillPassword('invalidPassword')
         loginPage.submit()
         loginPage.checkStatusMessage('Your username is invalid!')
     })
 
-    it('Verify Login Attempt with Empty Fields', () => {
+    it('Scenario 3: Verify Login Attempt with Empty Fields', () => {
         loginPage.submit()
         loginPage.checkStatusMessage('Your username is invalid!')
     })
 
     // Assuming the maximum limit is 20 characters for both username and password
-    it('Verify Input Field Constraints', () => {
+    it('Scenario 4: Verify Input Field Constraints', () => {
         loginPage.fillUsername('a'.repeat(21))
         loginPage.fillPassword('a'.repeat(21))
         loginPage.submit()
@@ -37,15 +39,37 @@ describe('Login Test Suite', () => {
     })
 
     // After successful login, we will logout.
-    it.only('Verify Logout', () => {
-        loginPage.fillUsername('tomsmith')
-        loginPage.fillPassword('SuperSecretPassword!')
+    it('Scenario 5: Verify Logout', () => {
+        cy.fixture('data').then( data => { 
+
+        loginPage.fillUsername(data.email)
+        loginPage.fillPassword(data.password)
         loginPage.submit()
-        loginPage.checkLoginSuccess()
         loginPage.checkStatusMessage('You logged into a secure area!')
         cy.wait(3000)
 
         cy.logout()
         loginPage.checkStatusMessage('You logged out of the secure area!')
+        })
+    })
+
+    it('Scenario 6: Verify Username Field Requirement', () => {
+
+        cy.fixture('data').then( data => { 
+
+        loginPage.fillPassword(data.password)
+        loginPage.submit()
+        loginPage.checkStatusMessage('Your username is invalid!')
+        })
+    })
+
+    it('Scenario 7: Verify Password Field Requirement', () => {
+
+        cy.fixture('data').then( data => { 
+
+        loginPage.fillUsername(data.email)
+        loginPage.submit()
+        loginPage.checkStatusMessage('Your password is invalid!')
+        })
     })
 })

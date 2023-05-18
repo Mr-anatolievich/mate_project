@@ -25,5 +25,4 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('logout', () => {
     cy.get('.icon-2x.icon-signout').click()
-
 })
