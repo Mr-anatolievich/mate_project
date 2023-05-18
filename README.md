@@ -161,11 +161,6 @@ class LoginPage {
     checkStatusMessage(text){
         cy.get('#flash').contains(text).should('be.visible')
     }
-
-    // Verify that login was successful
-    checkLoginSuccess() {
-        cy.url().should('include', '/secure')
-    }
 }
 
 export const loginPage = new LoginPage();
@@ -216,4 +211,12 @@ Following are some best practices to keep in mind when implementing page objects
 4. **Keep Page Objects DRY (Don't Repeat Yourself)**: If multiple page objects need to interact with the same element or set of elements, consider creating a base page object that other page objects can extend.
 
 5. **Encapsulate Page Details**: The page object should fully encapsulate the UI details of the page it represents. Test scripts should interact with the page object's API and know nothing about the underlying page.
+
+
+## 🚀 Yaroslav Saienko
+Your future QA Automation Engineer (JS)
+
+
+## 🔗 Links
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yaroslav-saienko/)
 
