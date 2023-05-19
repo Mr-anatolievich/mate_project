@@ -1,4 +1,4 @@
-
+/// <reference types="Cypress" />
 import { loginPage } from '../support/pageObjects/LoginPage'
 
 describe('Login Test Suite', () => {
